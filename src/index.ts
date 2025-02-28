@@ -9,13 +9,13 @@ import type {
 	TestStep,
 } from "@playwright/test/reporter";
 import * as path from "path";
-import { PrometheusOptions } from "./types";
-import { HttpCollector } from "./httpCollector";
+import { PrometheusOptions } from "./report/types";
+import { HttpCollector } from "./report/httpCollector";
 
 class PushGatewayPrometheusReporter implements Reporter {
 	constructor(
-		private readonly options: PrometheusOptions = {prefix: '_pw', serverUrl: 'http://127.0.0.1:9091'},
-		private readonly client: HttpCollector = new HttpCollector(options),
+		private readonly options: PrometheusOptions = { prefix: "_pw", serverUrl: "http://127.0.0.1:9091" },
+		private readonly client: HttpCollector = new HttpCollector(options)
 	) {}
 
 	private updateResults(result: TestResult, test: TestCase) {
@@ -70,7 +70,7 @@ class PushGatewayPrometheusReporter implements Reporter {
 				title: test.title,
 				tags: test.tags.join(","),
 			},
-			seconds,
+			seconds
 		);
 
 		this.updateResults(result, test);

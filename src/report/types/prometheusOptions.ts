@@ -13,9 +13,7 @@ export type PrometheusOptions = {
 	 */
 	labels?: Record<string, string>;
 	/**
-	 * Additional labels to apply to each timeseries.
-	 * @example
-	 * { instance: "hostname" }
+	 * Enable default metric.
 	 */
 	defaultMetrics?: boolean;
 };
