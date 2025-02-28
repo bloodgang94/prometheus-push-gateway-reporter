@@ -1,0 +1,68 @@
+{
+	"name": "@rowi-test/prometheus-push-gateway-reporter",
+	"version": "1.0.1",
+	"description": "Playwright prometheus push gateway reporter. Send your metrics to prometheus in realtime.",
+	"homepage": "https://github.com/bloodgang94/pdf-to-png-expect#readme",
+	"bugs": {
+		"url": "https://github.com/bloodgang94/pdf-to-png-expect/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bloodgang94/pdf-to-png-expect.git"
+	},
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"default": "./index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"keywords": [
+    "playwright",
+    "reporter",
+    "prometheus",
+    "metrics",
+    "grafana",
+    "monitoring"
+  ],
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsup --watch",
+		"prepare": "husky"
+	},
+	"files": [
+		"dist",
+		"package.json"
+	],
+	"author": "a.sotskov",
+	"license": "ISC",
+	"devDependencies": {
+		"@eslint/js": "^9.19.0",
+		"@types/node": "^20.12.7",
+		"@typescript-eslint/eslint-plugin": "^8.22.0",
+		"@typescript-eslint/parser": "^8.22.0",
+		"eslint": "^9.19.0",
+		"eslint-config-prettier": "^10.0.1",
+		"eslint-plugin-prettier": "^5.2.3",
+		"globals": "^15.14.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.4.3",
+		"prettier": "3.4.2",
+		"tsup": "^8.3.6",
+		"typescript-eslint": "^8.22.0"
+	},
+	"dependencies": {
+		"@playwright/test": "^1.50.0",
+		"prom-client": "^15.1.3",
+		"typescript": "^5.7.3"
+	},
+	"optionalDependencies": {
+		"@rollup/rollup-linux-x64-gnu": "^4.9.5",
+		"@rollup/rollup-linux-x64-musl": "^4.30.1"
+	}
+}

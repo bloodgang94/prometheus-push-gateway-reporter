@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["src/*"]
+		},
+		"strictNullChecks": true,
+		"outDir": "./dist",
+		"target": "ESNext",
+		"allowSyntheticDefaultImports": true,
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"declaration": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true
+	},
+	"include": [
+		"./types/index.d.ts",
+		"./src/*.ts"
+	  ],
+	"exclude": ["dist", "node_modules", "tests"]
+}
