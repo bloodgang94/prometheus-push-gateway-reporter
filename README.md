@@ -8,7 +8,7 @@ playwright.config.ts:
 reporter: [
 		[...],
 		[
-			"./src/playwright/report/prometheus-push-gateway.ts",
+			"@rowi-test/prometheus-push-gateway-reporter",
 			{
 				serverUrl: "http://localhost:9191",
 				jobName: "playwright-test",
