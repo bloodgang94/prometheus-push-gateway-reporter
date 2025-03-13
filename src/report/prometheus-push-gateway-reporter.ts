@@ -14,8 +14,8 @@ import { HttpCollector } from "./httpCollector";
 
 class PushGatewayPrometheusReporter implements Reporter {
 	constructor(
-		private readonly options: PrometheusOptions = {prefix: '_pw', serverUrl: 'http://127.0.0.1:9091'},
-		private readonly client: HttpCollector = new HttpCollector(options),
+		private readonly options: PrometheusOptions = { prefix: "_pw", serverUrl: "http://127.0.0.1:9091" },
+		private readonly client: HttpCollector = new HttpCollector(options)
 	) {}
 
 	private updateResults(result: TestResult, test: TestCase) {
@@ -51,10 +51,8 @@ class PushGatewayPrometheusReporter implements Reporter {
 		if (this.options.defaultMetrics) this.client.registerDefaultMetrics();
 	}
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	onStepEnd(test: TestCase, result: TestResult, step: TestStep): void {}
 
-	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	onTestBegin(test: TestCase, result: TestResult) {}
 
 	onTestEnd(test: TestCase, result: TestResult) {
@@ -70,7 +68,7 @@ class PushGatewayPrometheusReporter implements Reporter {
 				title: test.title,
 				tags: test.tags.join(","),
 			},
-			seconds,
+			seconds
 		);
 
 		this.updateResults(result, test);

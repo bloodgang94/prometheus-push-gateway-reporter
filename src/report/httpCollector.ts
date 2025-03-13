@@ -31,22 +31,35 @@ export class HttpCollector extends Collector {
 	readonly total_test_skipped_count: Counter<CommonLabel>;
 	readonly total_test_passed_count: Counter<CommonLabel>;
 	readonly total_test_failed_count: Counter<CommonLabel>;
+
 	constructor(commonOptions: PrometheusOptions) {
 		super(commonOptions);
 		this.client = new Pushgateway(commonOptions.serverUrl!);
 
 		this.total_test_run_duration = new Histogram(
-			"http_request_duration_seconds",
+			this.formatMetricName("http_request_duration_seconds"),
 			commonLabelAllowedFields,
-			"http_request_duration_seconds",
+			this.formatMetricName("http_request_duration_seconds"),
 			[0.1, 0.5, 1, 5, 10, 15, 30, 60]
 		);
-		this.total_test_count = new Counter("test_run_duration", commonLabelAllowedFields);
-		this.total_test_duration = new Counter("total_test_duration", commonLabelAllowedFields);
-		this.total_test_retry_count = new Counter("total_test_retry_count", commonLabelAllowedFields);
-		this.total_test_passed_count = new Counter("total_test_passed_count", commonLabelAllowedFields);
-		this.total_test_skipped_count = new Counter("total_test_skipped_count", commonLabelAllowedFields);
-		this.total_test_failed_count = new Counter("total_test_failed_count", commonLabelAllowedFields);
+		this.total_test_count = new Counter(this.formatMetricName("test_run_duration"), commonLabelAllowedFields);
+		this.total_test_duration = new Counter(this.formatMetricName("total_test_duration"), commonLabelAllowedFields);
+		this.total_test_retry_count = new Counter(
+			this.formatMetricName("total_test_retry_count"),
+			commonLabelAllowedFields
+		);
+		this.total_test_passed_count = new Counter(
+			this.formatMetricName("total_test_passed_count"),
+			commonLabelAllowedFields
+		);
+		this.total_test_skipped_count = new Counter(
+			this.formatMetricName("total_test_skipped_count"),
+			commonLabelAllowedFields
+		);
+		this.total_test_failed_count = new Counter(
+			this.formatMetricName("total_test_failed_count"),
+			commonLabelAllowedFields
+		);
 	}
 
 	clear(): void {
